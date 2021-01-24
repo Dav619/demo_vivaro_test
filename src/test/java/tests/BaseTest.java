@@ -1,11 +1,13 @@
 package tests;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.JavascriptException;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 
 public class BaseTest {
@@ -26,7 +28,7 @@ public class BaseTest {
 
 
     protected void closeNewVersionPopup() {
-        $(".popup-closed-b").click();
+        $(".popup-closed-b").shouldBe(visible).click();
     }
 
 }

@@ -18,7 +18,6 @@ public class DemoTests extends BaseTest {
     @Test
     public void changeAppLanguageToEnglish() {
         mainPage.selectAppLanguage("eng");
-        Selenide.sleep(3000);
         closeNewVersionPopup();
         Assert.assertEquals(mainPage.getEnglishTest(), "LOGIN");
 

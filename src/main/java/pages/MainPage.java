@@ -3,8 +3,7 @@ package pages;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$$;
+import static com.codeborne.selenide.Selenide.*;
 
 public class MainPage {
     public final String userEmail = "davit.vardanyan@betconstruct.com";
@@ -54,7 +53,7 @@ public class MainPage {
         clickOnLoginTitle();
         typeInEmailField(userEmail);
         typeInPasswordField(userPassword);
-        Selenide.sleep(2000);
+        sleep(2000);
         clickOnLoginButton();
         return this;
     }
