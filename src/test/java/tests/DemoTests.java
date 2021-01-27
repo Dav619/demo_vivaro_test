@@ -18,7 +18,6 @@ public class DemoTests extends BaseTest {
     @Test
     public void changeAppLanguageToEnglish() {
         mainPage.selectAppLanguage("eng");
-        closeNewVersionPopup();
         Assert.assertEquals(mainPage.getEnglishTest(), "LOGIN");
 
     }
