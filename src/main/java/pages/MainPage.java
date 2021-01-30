@@ -1,6 +1,5 @@
 package pages;
 
-import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Selenide.*;
@@ -22,6 +21,7 @@ public class MainPage {
     public SelenideElement oldPasswordField = $("input[name=oldpassword]");
     public SelenideElement changePasswordButton = $(".button-view-normal-m");
     public SelenideElement successMessage = $(".success");
+    public SelenideElement popupCloseButton = $(".popup-closed-b");
 
 
     public MainPage clickOnLoginTitle() {
@@ -49,13 +49,12 @@ public class MainPage {
         return name;
     }
 
-    public MainPage logIn() {
+    public void logIn() {
         clickOnLoginTitle();
         typeInEmailField(userEmail);
         typeInPasswordField(userPassword);
         sleep(2000);
         clickOnLoginButton();
-        return this;
     }
 
     public void selectAppLanguage(String text) {
@@ -67,7 +66,7 @@ public class MainPage {
         return text;
     }
 
-    public MainPage changeUserPassword() {
+    public void changeUserPassword() {
         userName.click();
         myAccountIcon.click();
         changePasswordTitle.click();
@@ -75,8 +74,8 @@ public class MainPage {
         newPasswordField2.sendKeys(userPassword);
         oldPasswordField.sendKeys(userPassword);
         changePasswordButton.click();
-        return this;
     }
+
     public String getSuccessMessage() {
         String text = successMessage.getText();
         return text;

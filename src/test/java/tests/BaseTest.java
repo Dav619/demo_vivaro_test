@@ -1,17 +1,15 @@
 package tests;
 
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
-import org.openqa.selenium.Capabilities;
-import org.openqa.selenium.JavascriptException;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import pages.MainPage;
 
-import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 
-public class BaseTest {
+public class BaseTest extends MainPage {
     public static final String BASE_URL = "https://m.vivarobet.am/";
+
 
     @BeforeMethod
     public void beforeMethodSignIn() {
@@ -28,7 +26,10 @@ public class BaseTest {
 
 
     protected void closeNewVersionPopup() {
-        $(".popup-closed-b").shouldBe(visible).click();
+        if (popupCloseButton.isDisplayed()) {
+            popupCloseButton.click();
+        }
+
     }
 
 }

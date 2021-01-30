@@ -1,6 +1,5 @@
 package tests;
 
-import com.codeborne.selenide.Selenide;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.MainPage;
@@ -18,15 +17,14 @@ public class DemoTests extends BaseTest {
     @Test
     public void changeAppLanguageToEnglish() {
         mainPage.selectAppLanguage("eng");
-        closeNewVersionPopup();
         Assert.assertEquals(mainPage.getEnglishTest(), "LOGIN");
 
     }
 
     @Test
     public void changeUserPassword() {
-        mainPage.logIn()
-                .changeUserPassword();
+        mainPage.logIn();
+        mainPage.changeUserPassword();
         Assert.assertEquals(mainPage.getSuccessMessage(), "Գաղտնաբառը հաջողությամբ փոխվել է։");
 
     }
